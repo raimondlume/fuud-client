@@ -38,7 +38,7 @@ export default {
   methods: {
     async getFoodItems () {
       this.isLoading = true
-      // get foodItems with user-specific data when user is logged in
+      // get foodItems with user specific data when user is logged in
       let requestEndPoint = this.$store.getters.loggedIn ? 'foodItem/user' : 'foodItem'
       await this.$http
         .get(requestEndPoint)
