@@ -1,4 +1,4 @@
-<!--suppress HtmlFormInputWithoutLabel -->
+!--suppress HtmlFormInputWithoutLabel -->
 <template>
   <div class="card">
     <div class="card-content">
@@ -12,7 +12,7 @@
               <div class="comment-text">
                 <span><strong>{{ comment.appUser.firstName}} {{ comment.appUser.lastName }}</strong> {{ comment.commentValue }}</span>
               </div>
-              <span>{{$moment(comment.timestamp).fromNow()}}</span>
+              <span>{{$moment(comment.timestamp).local().fromNow()}}</span>
             </div>
           </template>
           <template v-else>
