@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h1>travis-test</h1>
     <provider-buttons />
     <pulse-loader v-if="isLoading"></pulse-loader>
     <span class="is-size-3 subtitle" v-else-if="!anyFoodItemsToDisplay">No more lunch offers for today. Check again tomorrow!</span>
