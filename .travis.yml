@@ -22,6 +22,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -chavzP dist/* $SSH_USERNAME@raimondlu.me>:/var/www/raimondlu.me/fuud
+  script: rsync -chavzP dist/* $SSH_USERNAME@raimondlu.me:/var/www/raimondlu.me/fuud
   on:
     branch: master
