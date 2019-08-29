@@ -1,5 +1,7 @@
 # fuudclient
 
+[![Build Status](https://travis-ci.com/raimondlume/fuud-client.svg?token=HYv5sAEvndSbbqvnCDgq&branch=master)](https://travis-ci.com/raimondlume/fuud-client)
+
 ## Project setup
 ```
 npm install
