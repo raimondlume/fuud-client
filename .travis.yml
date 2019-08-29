@@ -1,13 +1,15 @@
 language: node_js
 os: linux
 sudo: true
-language: node_js
 node_js:
-  - "11"
+- '11'
 branches:
   only:
-    - master
+  - master
 install:
-  - npm i
+- npm i
 script:
-  - npm run build
+- npm run build
+before_install:
+- openssl aes-256-cbc -K $encrypted_7efe786a4d1f_key -iv $encrypted_7efe786a4d1f_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
