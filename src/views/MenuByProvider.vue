@@ -4,7 +4,7 @@
     <h1 class="title">{{ provider.name }}</h1>
     <h3 class="subtitle">{{ provider.address }}</h3>
     <pulse-loader v-if="isLoading" />
-    <span class="is-size-3 subtitle" v-else-if="this.foodItems.length < 1">No more lunch offers for today. Check again tomorrow!</span>
+    <span class="is-size-3 subtitle" v-else-if="!anyFoodItemsToDisplay">No more lunch offers for today. Check again tomorrow!</span>
     <food-item-list
       v-else
       :food-items="foodItems"
@@ -30,6 +30,11 @@ export default {
   created () {
     this.getFoodItems()
     this.getProviderData()
+  },
+  computed: {
+    anyFoodItemsToDisplay () {
+      return this.foodItems.length > 0
+    }
   },
   methods: {
     async getFoodItems () {

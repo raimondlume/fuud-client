@@ -219,6 +219,12 @@ export default {
     z-index: 2;
   }
 
+  @media (max-width: 950px) {
+    .card {
+      margin: 1rem auto;
+    }
+  }
+
   .has-comment-tab-open {
     margin-bottom: 0;
   }

@@ -15,9 +15,11 @@ export default new Vuex.Store({
   mutations: {
     setToken (state, token) {
       state.token = token
+      localStorage.setItem('token', token)
     },
     destroyToken (state) {
       state.token = null
+      localStorage.removeItem('token')
     },
     setUserID (state, userID) {
       state.userID = userID
@@ -47,6 +49,16 @@ export default new Vuex.Store({
         })
       })
     },
+    retrieveTokenFromLocalStorage (context) {
+      const token = localStorage.getItem('token')
+      if (token === null) return
+
+      let decodedToken = jwtDecode(token)
+      context.commit('setNames', { firstName: decodedToken.FirstName, lastName: decodedToken.LastName })
+      context.commit('setUserID', decodedToken.UserID)
+
+      context.commit('setToken', token)
+    },
     destroyToken (context) {
       if (context.getters.loggedIn) {
         return new Promise((resolve) => {
@@ -64,6 +76,10 @@ export default new Vuex.Store({
           lastName: credentials.lastName
         }).then(response => {
           const token = response.data.token
+
+          let decodedToken = jwtDecode(token)
+          context.commit('setNames', { firstName: decodedToken.FirstName, lastName: decodedToken.LastName })
+          context.commit('setUserID', decodedToken.UserID)
 
           context.commit('setToken', token)
           resolve(response)
