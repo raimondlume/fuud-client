@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-      </a>
+      <router-link :to="{name: 'home'}" class="navbar-item">
+        <img src="../../assets/fuud_logo_color.png" width="112" height="28">
+      </router-link>
 
       <a
         role="button"
@@ -21,10 +21,6 @@
     </div>
 
     <div id="navbar" class="navbar-menu" :class="{'is-active' : mobileNavShown}">
-      <div class="navbar-start">
-        <router-link :to="{name: 'home'}" class="navbar-item">Home</router-link>
-      </div>
-
       <div class="navbar-end">
         <div class="navbar-item" v-if="!loggedIn">
           <div class="buttons">

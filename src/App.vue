@@ -4,14 +4,17 @@
     <div class="container">
       <router-view/>
     </div>
+    <footer-component />
   </div>
 </template>
 
 <script>
 import NavBar from './components/Navigation/NavBar'
+import FooterComponent from './components/FooterComponent'
 
 export default {
   components: {
+    FooterComponent,
     NavBar
   },
   mounted () {
@@ -22,8 +25,15 @@ export default {
 </script>
 
 <style>
+  #app {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
   .container {
     margin: 15vh auto auto !important;
+    flex: 1;
   }
 
   @media (min-width: 950px) {
