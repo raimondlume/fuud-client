@@ -27,7 +27,7 @@ export default {
       foodItems: []
     }
   },
-  created () {
+  mounted () {
     this.getFoodItems()
     this.getProviderData()
   },

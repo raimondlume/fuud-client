@@ -27,7 +27,7 @@ export default {
       sortDirection: null
     }
   },
-  created () {
+  mounted () {
     this.getFoodItems()
   },
   computed: {

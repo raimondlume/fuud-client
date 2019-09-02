@@ -17,7 +17,7 @@ export default {
     FooterComponent,
     NavBar
   },
-  mounted () {
+  created () {
     // initialize Vuex state from localStorage if token present
     this.$store.dispatch('retrieveTokenFromLocalStorage')
   }
