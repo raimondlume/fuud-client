@@ -1,4 +1,4 @@
-# fuud? - Vue.js web client
+# fuud? - a Vue.js web client
 
 [![Build Status](https://travis-ci.com/raimondlume/fuud-client.svg?token=HYv5sAEvndSbbqvnCDgq&branch=master)](https://travis-ci.com/raimondlume/fuud-client)
 
@@ -6,7 +6,7 @@ A web app for checking daily lunch offers from various providers around the TalT
 
 Made using Vue + Vuex, data is consumed from a separate REST API (raimondlume/fuud-server).
 
-The project is in its alpha stage at the moment, check it out at [alpha.raimondlu.me](https://alpha.raimondlu.me)
+The project is in its alpha stages at the moment, check it out at [alpha.raimondlu.me](https://alpha.raimondlu.me)
 
 ## Project setup
 ```
