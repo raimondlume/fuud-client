@@ -18,9 +18,28 @@ export default new Router({
       component: Home
     },
     {
-      path: '/provider/:id',
-      name: 'provider',
-      component: MenuByProvider
+      path: '/bitstop',
+      name: 'provider-bitstop',
+      component: MenuByProvider,
+      props: {
+        providerId: 1
+      }
+    },
+    {
+      path: '/daily-it-maja',
+      name: 'provider-daily-it-building',
+      component: MenuByProvider,
+      props: {
+        providerId: 2
+      }
+    },
+    {
+      path: '/daily-kuues-korpus',
+      name: 'provider-daily-kuues-korpus',
+      component: MenuByProvider,
+      props: {
+        providerId: 3
+      }
     },
     {
       path: '/login',

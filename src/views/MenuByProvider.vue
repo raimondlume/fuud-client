@@ -19,9 +19,11 @@ import PulseLoader from 'vue-spinner/src/PulseLoader'
 export default {
   name: 'MenuByProvider',
   components: { PulseLoader, FoodItemList },
+  props: {
+    providerId: Number
+  },
   data () {
     return {
-      providerId: this.$route.params.id,
       provider: '',
       isLoading: false,
       foodItems: []

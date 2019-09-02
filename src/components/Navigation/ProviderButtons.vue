@@ -1,21 +1,21 @@
 <template>
   <div class="columns is-multiline is-mobile">
     <div class="column is-one-third">
-      <router-link :to="{ name:'provider', params: { id: 1 }}">
+      <router-link :to="{ name:'provider-bitstop'}">
         <div class="provider-box gradient-blue">
           <h2 class="title is-size-6-mobile has-text-white">BitStop</h2>
         </div>
       </router-link>
     </div>
     <div class="column is-one-third">
-      <router-link :to="{ name:'provider', params: { id: 2 }}">
+      <router-link :to="{ name:'provider-daily-it-building'}">
         <div class="provider-box gradient-pink">
           <h2 class="title is-size-6-mobile has-text-white">Daily IT-maja</h2>
         </div>
       </router-link>
     </div>
     <div class="column is-one-third">
-      <router-link :to="{ name:'provider', params: { id: 3 }}">
+      <router-link :to="{ name:'provider-daily-kuues-korpus'}">
         <div class="provider-box gradient-green">
           <h2 class="title is-size-6-mobile has-text-white">Daily kuues korpus</h2>
         </div>
