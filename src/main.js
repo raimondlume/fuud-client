@@ -6,6 +6,7 @@ import axios from 'axios'
 import VTooltip from 'v-tooltip'
 import moment from 'moment'
 import RotateLoader from 'vue-spinner/src/RotateLoader'
+import VueAnalytics from 'vue-analytics'
 
 // font-awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -15,6 +16,12 @@ library.add(fas)
 
 // tooltips
 Vue.use(VTooltip)
+
+// google analytics
+Vue.use(VueAnalytics, {
+  id: 'UA-147153007-1',
+  router
+})
 
 // import main stylesheet
 require('./assets/style.scss')
