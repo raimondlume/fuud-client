@@ -33,7 +33,7 @@
               <p class="title is-size-5-mobile">
                 {{ nameEst }}
               </p>
-              <p class="subtitle is-size-6-mobile">
+              <p class="subtitle is-size-6-mobile is-family-secondary">
                 {{ nameEng }}
               </p>
               <span @click="commentTabOpen = !commentTabOpen" class="comment-count">

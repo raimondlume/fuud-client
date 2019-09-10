@@ -2,21 +2,27 @@
   <div class="button-row">
     <button
       class="button is-primary is-rounded"
-      :class="{ 'is-outlined': sortKey !== 'rating' }"
+      :class="{
+        'is-outlined': sortKey !== 'rating',
+        'has-text-weight-bold': sortKey === 'rating'
+       }"
       @click="selectSortMethod('rating')">
           <span class="icon">
             <font-awesome-icon :icon="getIconDirection('rating')" />
           </span>
-      <span>Rating</span>
+      <span class="is-family-secondary">Rating</span>
     </button>
     <button
       class="button is-info is-rounded"
-      :class="{ 'is-outlined': sortKey !== 'price' }"
+      :class="{
+        'is-outlined': sortKey !== 'price',
+        'has-text-weight-bold': sortKey === 'price'
+       }"
       @click="selectSortMethod('price')">
           <span class="icon">
             <font-awesome-icon :icon="getIconDirection('price')" />
           </span>
-      <span>Price</span>
+      <span class="is-family-secondary">Price</span>
     </button>
     <div class="field search-input">
       <div class="control has-icons-left has-icons-right">
