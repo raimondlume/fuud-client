@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-multiline is-mobile">
+  <div class="columns is-multiline is-mobile is-variable is-1-mobile">
     <div class="column is-one-third">
       <router-link :to="{ name:'provider-bitstop'}">
         <div class="provider-box gradient-blue">
