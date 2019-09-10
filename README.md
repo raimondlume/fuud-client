@@ -6,7 +6,7 @@ A web app for checking daily lunch offers from various providers around the TalT
 
 Made using Vue + Vuex, data is consumed from a separate REST API (raimondlume/fuud-server).
 
-The project is in its alpha stages at the moment, check it out at [alpha.raimondlu.me](https://alpha.raimondlu.me)
+The project is in its alpha stages at the moment, check it out at [fuud.xyz](https://fuud.xyz)
 
 ## Project setup
 ```
