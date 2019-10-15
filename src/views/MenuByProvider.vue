@@ -3,10 +3,7 @@
     <span @click="$router.go(-1)" class="back-button">Back</span>
     <h1 class="title">{{ provider.name }}</h1>
     <h3 class="subtitle">{{ provider.address }}</h3>
-    <pulse-loader v-if="isLoading" />
-    <span class="is-size-3 subtitle" v-else-if="!anyFoodItemsToDisplay">No more lunch offers for today. Check again tomorrow!</span>
     <food-item-list
-      v-else
       :food-items="foodItems"
     />
   </div>
@@ -14,11 +11,10 @@
 
 <script>
 import FoodItemList from '../components/FoodItemList'
-import PulseLoader from 'vue-spinner/src/PulseLoader'
 
 export default {
   name: 'MenuByProvider',
-  components: { PulseLoader, FoodItemList },
+  components: { FoodItemList },
   props: {
     providerId: Number
   },
@@ -29,7 +25,7 @@ export default {
       foodItems: []
     }
   },
-  mounted () {
+  created () {
     this.getFoodItems()
     this.getProviderData()
   },
@@ -49,11 +45,12 @@ export default {
         .get(requestEndPoint)
         .then(response => {
           this.foodItems = response.data
+          this.isLoading = false
         })
         .catch(error => {
           console.log(error)
+          this.isLoading = false
         })
-      this.isLoading = false
     },
     async getProviderData () {
       this.isLoading = true
