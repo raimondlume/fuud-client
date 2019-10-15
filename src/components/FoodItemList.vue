@@ -18,7 +18,8 @@
       v-else
       class="fooditem"
       v-for="foodItem in getSortedAndFilteredFoodItems(this.foodItems, sortKey, sortDirection, searchText)"
-      :key="foodItem.id">
+      :key="foodItem.id"
+    >
       <food-item
         :food-item-id="foodItem.id"
         :name-est="foodItem.nameEst"

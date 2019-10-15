@@ -5,6 +5,7 @@
     <h3 class="subtitle">{{ provider.address }}</h3>
     <food-item-list
       :food-items="foodItems"
+      :is-loading="isLoading"
     />
   </div>
 </template>
@@ -25,7 +26,7 @@ export default {
       foodItems: []
     }
   },
-  created () {
+  mounted () {
     this.getFoodItems()
     this.getProviderData()
   },
@@ -45,12 +46,13 @@ export default {
         .get(requestEndPoint)
         .then(response => {
           this.foodItems = response.data
-          this.isLoading = false
         })
         .catch(error => {
           console.log(error)
           this.isLoading = false
         })
+
+      this.isLoading = false
     },
     async getProviderData () {
       this.isLoading = true
