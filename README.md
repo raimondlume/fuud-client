@@ -4,7 +4,7 @@
 
 A web app for checking daily lunch offers from various providers around the TalTech campus (for now).
 
-Made using Vue + Vuex, data is consumed from a separate REST API (raimondlume/fuud-server).
+Made using Vue + Vuex, data is consumed from a separate REST API ([raimondlume/fuud-server](https://github.com/raimondlume/fuud-server)).
 
 The project is in its alpha stages at the moment, check it out at [fuud.xyz](https://fuud.xyz)
 
@@ -22,3 +22,9 @@ npm run serve
 ```
 npm run build
 ```
+
+<br>
+<br>
+<a href="https://bulma.io">
+<img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+</a>
