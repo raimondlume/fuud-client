@@ -22,7 +22,8 @@ export default {
   data () {
     return {
       provider: '',
-      isLoading: false,
+      isFoodDataLoading: false,
+      isProviderDataLoading: false,
       foodItems: []
     }
   },
@@ -33,11 +34,14 @@ export default {
   computed: {
     anyFoodItemsToDisplay () {
       return this.foodItems.length > 0
+    },
+    isLoading () {
+      return this.isFoodDataLoading || this.isProviderDataLoading
     }
   },
   methods: {
     async getFoodItems () {
-      this.isLoading = true
+      this.isFoodDataLoading = true
       let requestEndPoint = this.$store.getters.loggedIn
         ? `foodItem/provider/${this.providerId}/user`
         : `foodItem/provider/${this.providerId}`
@@ -52,10 +56,10 @@ export default {
           this.isLoading = false
         })
 
-      this.isLoading = false
+      this.isFoodDataLoading = false
     },
     async getProviderData () {
-      this.isLoading = true
+      this.isProviderDataLoading = true
       await this.$http
         .get(`provider/${this.providerId}`)
         .then(response => {
@@ -64,7 +68,7 @@ export default {
         .catch(error => {
           console.log(error)
         })
-      this.isLoading = false
+      this.isProviderDataLoading = false
     }
   }
 }
