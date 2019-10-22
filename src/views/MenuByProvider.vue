@@ -1,6 +1,11 @@
 <template>
   <div>
-    <span @click="$router.go(-1)" class="back-button">Back</span>
+    <div @click="$router.push('/')" class="back-button">
+      <span class="icon">
+        <font-awesome-icon icon="arrow-circle-left" />
+      </span>
+      <span>Back</span>
+    </div>
     <h1 class="title">{{ provider.name }}</h1>
     <h3 class="subtitle">{{ provider.address }}</h3>
     <food-item-list
@@ -76,7 +81,7 @@ export default {
 
 <style scoped>
   .back-button {
-    margin-bottom: 30px;
+    display: flex;
     cursor: pointer;
   }
 </style>
