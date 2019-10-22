@@ -1,24 +1,20 @@
 <template>
   <div class="home">
     <provider-buttons />
-    <pulse-loader v-if="isLoading"></pulse-loader>
-    <span class="is-size-3 subtitle" v-else-if="!anyFoodItemsToDisplay">No more lunch offers for today. Check again tomorrow!</span>
     <food-item-list
-      v-else
       :food-items="foodItems"
+      :is-loading="isLoading"
     />
   </div>
 </template>
 
 <script>
 import ProviderButtons from '../components/Navigation/ProviderButtons'
-import PulseLoader from 'vue-spinner/src/PulseLoader'
-
 import FoodItemList from '../components/FoodItemList'
 
 export default {
   name: 'home',
-  components: { FoodItemList, PulseLoader, ProviderButtons },
+  components: { FoodItemList, ProviderButtons },
   data () {
     return {
       isLoading: false,
@@ -29,11 +25,6 @@ export default {
   },
   mounted () {
     this.getFoodItems()
-  },
-  computed: {
-    anyFoodItemsToDisplay () {
-      return this.foodItems.length > 0
-    }
   },
   methods: {
     async getFoodItems () {
@@ -55,8 +46,4 @@ export default {
 </script>
 
 <style scoped>
-  .v-spinner {
-    margin-top: 20vh;
-    text-align: center;
-  }
 </style>

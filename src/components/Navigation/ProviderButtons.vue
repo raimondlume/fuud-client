@@ -47,6 +47,7 @@ export default {
       height: 70px;
       padding: 0.5rem;
       margin: 0.5rem 0;
+      border-radius: 0.5em;
     }
   }
 

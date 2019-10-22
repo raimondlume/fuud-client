@@ -1,31 +1,34 @@
 <template>
   <div>
-    <span @click="$router.go(-1)" class="back-button">Back</span>
+    <div @click="$router.push('/')" class="back-button">
+      <span class="icon">
+        <font-awesome-icon icon="arrow-circle-left" />
+      </span>
+      <span>Back</span>
+    </div>
     <h1 class="title">{{ provider.name }}</h1>
     <h3 class="subtitle">{{ provider.address }}</h3>
-    <pulse-loader v-if="isLoading" />
-    <span class="is-size-3 subtitle" v-else-if="!anyFoodItemsToDisplay">No more lunch offers for today. Check again tomorrow!</span>
     <food-item-list
-      v-else
       :food-items="foodItems"
+      :is-loading="isLoading"
     />
   </div>
 </template>
 
 <script>
 import FoodItemList from '../components/FoodItemList'
-import PulseLoader from 'vue-spinner/src/PulseLoader'
 
 export default {
   name: 'MenuByProvider',
-  components: { PulseLoader, FoodItemList },
+  components: { FoodItemList },
   props: {
     providerId: Number
   },
   data () {
     return {
       provider: '',
-      isLoading: false,
+      isFoodDataLoading: false,
+      isProviderDataLoading: false,
       foodItems: []
     }
   },
@@ -36,11 +39,14 @@ export default {
   computed: {
     anyFoodItemsToDisplay () {
       return this.foodItems.length > 0
+    },
+    isLoading () {
+      return this.isFoodDataLoading || this.isProviderDataLoading
     }
   },
   methods: {
     async getFoodItems () {
-      this.isLoading = true
+      this.isFoodDataLoading = true
       let requestEndPoint = this.$store.getters.loggedIn
         ? `foodItem/provider/${this.providerId}/user`
         : `foodItem/provider/${this.providerId}`
@@ -52,11 +58,13 @@ export default {
         })
         .catch(error => {
           console.log(error)
+          this.isLoading = false
         })
-      this.isLoading = false
+
+      this.isFoodDataLoading = false
     },
     async getProviderData () {
-      this.isLoading = true
+      this.isProviderDataLoading = true
       await this.$http
         .get(`provider/${this.providerId}`)
         .then(response => {
@@ -65,7 +73,7 @@ export default {
         .catch(error => {
           console.log(error)
         })
-      this.isLoading = false
+      this.isProviderDataLoading = false
     }
   }
 }
@@ -73,7 +81,7 @@ export default {
 
 <style scoped>
   .back-button {
-    margin-bottom: 30px;
+    display: flex;
     cursor: pointer;
   }
 </style>

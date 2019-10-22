@@ -37,11 +37,7 @@ export default new Vuex.Store({
           password: credentials.password
         }).then(response => {
           const token = response.data.token
-          context.commit('setToken', token)
-
-          let decodedToken = jwtDecode(token)
-          context.commit('setNames', { firstName: decodedToken.FirstName, lastName: decodedToken.LastName })
-          context.commit('setUserID', decodedToken.UserID)
+          decodeTokenAndSetData(token, context)
 
           resolve(response)
         }).catch(error => {
@@ -53,11 +49,7 @@ export default new Vuex.Store({
       const token = localStorage.getItem('token')
       if (token === null) return
 
-      let decodedToken = jwtDecode(token)
-      context.commit('setNames', { firstName: decodedToken.FirstName, lastName: decodedToken.LastName })
-      context.commit('setUserID', decodedToken.UserID)
-
-      context.commit('setToken', token)
+      decodeTokenAndSetData(token, context)
     },
     destroyToken (context) {
       if (context.getters.loggedIn) {
@@ -77,11 +69,7 @@ export default new Vuex.Store({
         }).then(response => {
           const token = response.data.token
 
-          let decodedToken = jwtDecode(token)
-          context.commit('setNames', { firstName: decodedToken.FirstName, lastName: decodedToken.LastName })
-          context.commit('setUserID', decodedToken.UserID)
-
-          context.commit('setToken', token)
+          decodeTokenAndSetData(token, context)
           resolve(response)
         }).catch(error => {
           reject(error)
@@ -106,3 +94,11 @@ export default new Vuex.Store({
     }
   }
 })
+
+function decodeTokenAndSetData (token, context) {
+  context.commit('setToken', token)
+
+  let decodedToken = jwtDecode(token)
+  context.commit('setNames', { firstName: decodedToken.FirstName, lastName: decodedToken.LastName })
+  context.commit('setUserID', decodedToken.UserID)
+}
