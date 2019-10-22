@@ -56,6 +56,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Register
+    },
+    {
+      path: '*',
+      name: 'wildcard',
+      redirect: Home
     }
   ]
 })
