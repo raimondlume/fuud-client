@@ -6,8 +6,9 @@ import axios from 'axios'
 import VTooltip from 'v-tooltip'
 import moment from 'moment'
 import RotateLoader from 'vue-spinner/src/RotateLoader'
-import VueAnalytics from 'vue-analytics'
+import './registerServiceWorker'
 
+import VueAnalytics from 'vue-analytics'
 // font-awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
