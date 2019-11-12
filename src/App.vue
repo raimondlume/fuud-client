@@ -38,11 +38,11 @@ export default {
 
   @media (min-width: 950px) {
     .container {
-      max-width: 55vw !important;
+      min-width: 55vw !important;
     }
   }
 
-  @media (max-width: 950px) {
+  @media (max-width: 1000px) {
     .container {
       margin: 15vh 0.6em auto !important;
     }
